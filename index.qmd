@@ -1,0 +1,40 @@
+---
+title: "Quarto doc w/ External Notebooks"
+format: 
+  pdf:
+    fig-format: pdf
+  html:
+    fig-format: svg
+editor: source
+---
+
+## Figure - internal
+```{python}
+#| echo: false
+#| label: fig-internal
+#| fig-cap: "Caption."
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0,1,100)
+y = x**2
+plt.plot(x, y)
+
+plt.xlabel('X-Axis Label')
+plt.ylabel('Y-Axis Label')
+plt.title('Sample Plot')
+plt.show()
+```
+
+@fig-internal shows a nice pdf (pdf) and svg (html) figure.
+
+## Figure from external Quarto file
+{{< embed example-plot.qmd#fig-external-qmd >}}
+
+@fig-external-qmd shows ...
+
+## Figure from external Jupyter notebook
+{{< embed example-plot.ipynb#fig-external-ipynb >}}
+
+@fig-external-ipynb shows ...
